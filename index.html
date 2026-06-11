@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MRKT</title>
+<meta name="description" content="MRKT">
+<link rel="canonical" href="https://www.mrkt.xyz/">
+<link rel="alternate" hreflang="x-default" href="https://www.mrkt.xyz/">
+<link rel="alternate" hreflang="en" href="https://www.mrkt.xyz/en">
+<link rel="alternate" hreflang="ru" href="https://www.mrkt.xyz/ru">
+<link rel="alternate" hreflang="fa" href="https://www.mrkt.xyz/fa">
+<link rel="alternate" hreflang="ko" href="https://www.mrkt.xyz/ko">
+<link rel="alternate" hreflang="zh" href="https://www.mrkt.xyz/zh">
+<link rel="alternate" hreflang="ja" href="https://www.mrkt.xyz/ja">
+<link rel="alternate" hreflang="tr" href="https://www.mrkt.xyz/tr">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{min-height:100%;margin:0}
+body{background:#171718;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+noscript p{text-align:center;padding:40px 20px;font-size:14px;color:#fff}
+noscript a{color:#fff}
+</style>
+</head>
+<body>
+<noscript>
+<p>
+<a href="/en">Continue to MRKT</a>
+</p>
+</noscript>
+<script>
+(function () {
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  var cookieLocale = getCookie('NEXT_LOCALE');
+  var supportedLocales = ["en","ru","fa","ko","zh","ja","tr"];
+  var fallbackLocale = "en";
+
+  function normalizeLocale(locale) {
+    if (!locale) return '';
+    return String(locale).toLowerCase().split('-')[0];
+  }
+
+  function isSupportedLocale(locale) {
+    return supportedLocales.indexOf(locale) !== -1;
+  }
+
+  var normalizedCookieLocale = normalizeLocale(cookieLocale);
+  var targetLocale = isSupportedLocale(normalizedCookieLocale) ? normalizedCookieLocale : '';
+
+  if (!targetLocale) {
+    var browserLocales = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || ''];
+
+    for (var i = 0; i < browserLocales.length; i += 1) {
+      var normalizedBrowserLocale = normalizeLocale(browserLocales[i]);
+      if (isSupportedLocale(normalizedBrowserLocale)) {
+        targetLocale = normalizedBrowserLocale;
+        break;
+      }
+    }
+  }
+
+  window.location.replace('/' + (targetLocale || fallbackLocale) + window.location.search + window.location.hash);
+})();
+</script>
+</body>
+</html>
